@@ -13,7 +13,7 @@ Feature: Couple Acceptance scenarios
      And  I click "Register"
      Then I see text "Sign up"
      And  I fill in text fields with correct random data to create user:
-       | email                         | test35@email.com |
+       | email                         | user@email.com |
        | password                      | password         |
        | password_confirmation         | password         |
        | country                       | Ukraine          |

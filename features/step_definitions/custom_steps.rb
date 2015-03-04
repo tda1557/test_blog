@@ -3,6 +3,7 @@ Dir["./page_objects/pages/*.rb"].each {|file| require file }
 $basepage = BasePage.new
 $signuppage=SignUpPage.new
 
+uniq=Time.new.strftime "%Y%m%d%H%M%S"
 
 When(/^I get to the main page$/) do
   $basepage.open
@@ -27,7 +28,7 @@ end
 Then(/^I fill in text fields with correct random data to create user:$/) do |table|
   data=table.raw
   data.each do |k,l|
-    $signuppage.field_set(k, l)
+    $signuppage.field_set(k, uniq+l)
   end
 
 end
@@ -40,7 +41,7 @@ end
 Then(/^I fill in text fields with correct random data to create article:$/) do |table|
   data=table.raw
   data.each do |k,l|
-    $crnewuser.field_set(k, l)
+    $crnewuser.field_set(k, uniq+l)
   end
 end
 
